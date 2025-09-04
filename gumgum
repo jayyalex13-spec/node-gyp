@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #222;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #333;
+      overflow-y: auto;
+      max-height: 160px;
+    }
+    nav button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #555;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+    nav button:hover {
+      background: #777;
+    }
+    iframe {
+      flex-grow: 1;
+      border: none;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>🎮 Game Hub</header>
+  <nav>
+    <button onclick="loadGame('https://www.xbox.com/play')">Xbox Cloud</button>
+    <button onclick="loadGame('https://slowroads.io')">Slow Roads</button>
+    <button onclick="loadGame('https://play2048.co/')">2048</button>
+    <button onclick="loadGame('https://tetris.com/play-tetris')">Tetris</button>
+    <button onclick="loadGame('https://agar.io')">Agar.io</button>
+    <button onclick="loadGame('https://slither.io')">Slither.io</button>
+    <button onclick="loadGame('https://diep.io')">Diep.io</button>
+    <button onclick="loadGame('https://krunker.io')">Krunker</button>
+    <button onclick="loadGame('https://flappybird.io')">Flappy Bird</button>
+    <button onclick="loadGame('https://snake.io')">Snake.io</button>
+    <button onclick="loadGame('https://shellshock.io')">Shell Shockers</button>
+    <button onclick="loadGame('https://surviv.io')">Surviv.io</button>
+    <button onclick="loadGame('https://paper-io.com')">Paper.io</button>
+    <button onclick="loadGame('https://worldsbiggestpacman.com/')">Pac-Man</button>
+    <button onclick="loadGame('https://orteil.dashnet.org/cookieclicker/')">Cookie Clicker</button>
+    <button onclick="loadGame('https://zombs.io')">Zombs.io</button>
+    <button onclick="loadGame('https://wormax.io')">Wormax.io</button>
+    <button onclick="loadGame('https://bonk.io')">Bonk.io</button>
+    <button onclick="loadGame('https://mope.io')">Mope.io</button>
+    <button onclick="loadGame('https://hole-io.com')">Hole.io</button>
+    <button onclick="loadGame('https://littlealchemy2.com')">Little Alchemy 2</button>
+    <button onclick="loadGame('https://gartic.io')">Gartic.io</button>
+    <button onclick="loadGame('https://sploop.io')">Sploop.io</button>
+    <button onclick="loadGame('https://lordz.io')">Lordz.io</button>
+    <button onclick="loadGame('https://battleboats.io')">Battleboats.io</button>
+    <button onclick="loadGame('https://superhex.io')">Superhex.io</button>
+    <button onclick="loadGame('https://brutal.io')">Brutal.io</button>
+    <button onclick="loadGame('https://narwhale.io')">Narwhale.io</button>
+    <button onclick="loadGame('https://ev.io')">Ev.io</button>
+    <button onclick="loadGame('https://vectorgame.io')">Vector Game</button>
+    <button onclick="loadGame('https://evades.io')">Evades.io</button>
+    <button onclick="loadGame('https://snowball.io')">Snowball.io</button>
+    <button onclick="loadGame('https://fallboys.io')">Fall Boys</button>
+    <button onclick="loadGame('https://rocketbotroyale.io')">Rocket Bot Royale</button>
+    <button onclick="loadGame('https://stabfish.io')">Stabfish.io</button>
+  </nav>
+  <iframe id="gameFrame" src="https://play2048.co/"></iframe>
+
+  <script>
+    function loadGame(url) {
+      const frame = document.getElementById('gameFrame');
+      try {
+        frame.src = url;
+        // If iframe fails, open in new tab after short delay
+        setTimeout(() => {
+          if (!frame.contentWindow || frame.contentDocument.body.innerHTML === '') {
+            window.open(url, '_blank');
+          }
+        }, 1500);
+      } catch (e) {
+        window.open(url, '_blank');
+      }
+    }
+  </script>
+</body>
+</html>
